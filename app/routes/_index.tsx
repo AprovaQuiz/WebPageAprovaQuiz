@@ -1,11 +1,11 @@
 import type { LinksFunction} from "@remix-run/node";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-
+import home from "~/styles/home.css?url";
 
 export const links: LinksFunction = () => {
   return [
-      
+      { rel: "stylesheet", href: home },
       { rel: "shortcut icon", href: "/LogoAprovaQuiz.png", type: "image/x-icon" },
   ];
 };
