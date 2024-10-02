@@ -1,7 +1,7 @@
 import type { LinksFunction} from "@remix-run/node";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-import  mainCss  from "~/styles/main.css";
+import  mainCss  from "~/styles/main.css?url";
 
 
 export const links: LinksFunction = () => {
