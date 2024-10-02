@@ -1,18 +1,14 @@
 import type { LinksFunction} from "@remix-run/node";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-import  mainCss  from "~/styles/main.css?url";
 
 
 export const links: LinksFunction = () => {
   return [
-      { rel: "stylesheet", href: mainCss },
+      
       { rel: "shortcut icon", href: "/LogoAprovaQuiz.png", type: "image/x-icon" },
   ];
 };
-
-/* Por algum motivo o Cloudflare explode com o Import CSS na linha 4 e o export const na linha 6*/
-/* Ainda vou ver como resolver, mas p enquanto isso ai ta quebrando o cloudflare, mas funciona normalmente Local*/
 
 export default function Index() {
   return (
