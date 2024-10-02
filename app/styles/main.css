@@ -1,0 +1,14 @@
+* {
+    font-family: sans-serif;
+}
+
+.headerAQ{
+    background-color: #8A45ED;
+}
+
+.footerTitulo{
+    color: #3C1673;
+}
+.footer-link{
+    text-decoration: none;
+}
