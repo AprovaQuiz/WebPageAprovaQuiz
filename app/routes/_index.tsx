@@ -1,6 +1,14 @@
+import type { LinksFunction} from "@remix-run/node";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 
+
+export const links: LinksFunction = () => {
+  return [
+      
+      { rel: "shortcut icon", href: "/LogoAprovaQuiz.png", type: "image/x-icon" },
+  ];
+};
 
 export default function Index() {
   return (
