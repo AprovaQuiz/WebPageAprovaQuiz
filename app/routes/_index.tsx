@@ -3,6 +3,7 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import  mainCss  from "~/styles/main.css";
 
+
 export const links: LinksFunction = () => {
   return [
       { rel: "stylesheet", href: mainCss },
