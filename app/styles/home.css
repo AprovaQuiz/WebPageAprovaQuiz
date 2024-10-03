@@ -1,6 +1,7 @@
 .bannerHome {
     background-color: var(--background-roxo-principal);
     background: linear-gradient(0deg, rgba(162,111,235,1) 0%, rgba(115,54,203,1) 35%, rgba(138,69,237,1) 100%); 
+    /*Depois tenho que trocar os rgb por variaveis*/
 }
 
 .textoBanner{

@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 
 export function Header() {
 
@@ -11,7 +12,7 @@ export function Header() {
                 </a>
                 <ul className="nav nav-pills">
                 <li className="nav-item"><a href="/" className="nav-link" aria-current="page">Home</a></li>
-                <li className="nav-item"><a href="/" className="nav-link">Simulados</a></li>
+                <li className="nav-item"><Link to="/Simula" className="nav-link">Simulados</Link></li>
                 <li className="nav-item"><a href="/" className="nav-link">Cadernos</a></li>
                 <li className="nav-item"><a href="/" className="nav-link">Notícias</a></li>
             </ul>
