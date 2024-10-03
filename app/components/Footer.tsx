@@ -3,10 +3,10 @@ import { Link } from "@remix-run/react";
 export function Footer() {
 
     return (
-        <footer className="container-fluid">
+        <footer className="container-fluid footerAQ">
             
             <div className="row">
-                <div className="col d-flex justify-content-center align-items-center pb-4 pt-4">
+                <div className="col pb-4 pt-4">
                     <ul className="footer-list">
                         <li>
                             <h3 className="footerTitulo">Cadernos</h3>
