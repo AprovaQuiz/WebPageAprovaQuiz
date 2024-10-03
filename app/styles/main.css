@@ -1,13 +1,56 @@
+:root {
+    --background-primario: #f9f9f9; /*não é bom usar o #fff para background e #000 para texto, esse background e o text primarios tem um leve tom, bem pequeno mas o suficiente para não se o padraozoa, mas qlqr coisa dps troca o tom se vcs acharem q fica ruim*/
+    --background-secundario: #effff1; /* o secundario está ai para quando precisar de um leve contraste com o primario*/
+    --background-terciario: #111111;
+
+    --background-roxo-principal: #8A45ED; /*evitar ao máximo de usar os -roxo-principal e -roxo-secundario no final desse root*/
+    --background-roxo-secundario: #4F2787; /*pq dps, principalmente na hr de fzr o tema escuro, é mt ruim de trocar as cores se uma variavel estiver em todos os tipos de componentes imaginaveis*/
+
+    --text-primario: #060c05;
+    --text-secundario: #414141;
+    --text-terciario: #9795B5; /*Esse é o usado nos items/links do Footer*/
+    --text-quaternario: #f9f9f9;
+    --text-roxo-principal: #8A45ED;
+    --text-roxo-secundario: #4F2787;
+    --text-roxo-terciario: #3C1673;
+
+    --roxo-principal: #8A45ED; /*Usar mais para referencia, pra não perder o código hex, mas é bom evitar ao máaximo de usar essas variaveis diretamente*/
+    --roxo-secundario: #4F2787;
+}
+
 * {
     font-family: sans-serif;
 }
 
+/* HEADER */
+
 .headerAQ{
-    background-color: #8A45ED;
+    background-color: var(--background-roxo-principal);
+    color: var(--text-quaternario) !important;
+}
+
+.headerAQ, .nav-link{
+    text-decoration: none !important;
+    color: var(--text-quaternario) !important;
+}
+
+
+/* FOOTER*/
+
+.footerAQ, .footer-list{
+    list-style: none !important;
+}
+
+.footerAQ, a{
+    color: var(--text-terciario) !important;
+}
+
+.footerAQ{
+    padding-top: 8rem;
 }
 
 .footerTitulo{
-    color: #3C1673;
+    color: var(--text-roxo-terciario);
 }
 .footer-link{
     text-decoration: none;

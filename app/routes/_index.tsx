@@ -15,21 +15,30 @@ export default function Index() {
     <main>
       <Header />
       
-      <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
-        <header className="flex flex-col items-center gap-9">
-          <h1 className="leading text-2xl font-bold ">
-            Welcome to
-          </h1>
-          <div className="h-[144px] w-[434px]">
+      <div className="vh-100 d-flex flex-column justify-content-center align-items-center bannerHome">
+      <div className="container h-100">
+        <div className="row h-100">
+          {/* Left Section */}
+          <div className="col-md-6 d-flex flex-column justify-content-center">
+            <h1 className="display-3 mb-4 textaoBanner text-light">Se prepare para os vestibulares com nossa ajuda!</h1>
+            <p className="lead mb-4 text-light">
+              Teste seus conhecimentos com nosso simulado!
+            </p>
+            <a href="/" className="btn btn-lg btn-light botaoSimulado">
+              Ir para o simulado
+            </a>
+          </div>
+
+          {/* Right Section */}
+          <div className="col-md-6 d-flex justify-content-end align-items-center">
             <img
-              src="/LogoAprovaQuiz.png"
-              alt="AprovaQuiz"
-              className="block w-full"
+              src="/AprovaCabeca.png"
+              alt="Logo"
+              className="img-fluid"
+              style={{ maxHeight: '200px' }}
             />
           </div>
-        </header>
-        
+        </div>
       </div>
     </div>
 
