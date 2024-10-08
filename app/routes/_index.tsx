@@ -24,7 +24,7 @@ export default function Index() {
   // Código teste do axios
   useEffect(() => {
     axios.get("https://api.ipify.org?format=json").then(response => {
-      alert("\nseu ip é = " + response.data.ip);
+      console.log("\nseu ip é = " + response.data.ip);
     })
       .catch();
   }, [])
