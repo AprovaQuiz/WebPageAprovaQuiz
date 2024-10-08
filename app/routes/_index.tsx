@@ -1,13 +1,15 @@
-import type { LinksFunction, MetaFunction} from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import home from "~/styles/home.css?url";
+import axios from "axios";
+import { useEffect } from "react";
 
 export const links: LinksFunction = () => {
   return [
-      { rel: "stylesheet", href: home },
-      { rel: "shortcut icon", href: "/LogoAprovaQuiz.png", type: "image/x-icon" },
+    { rel: "stylesheet", href: home },
+    { rel: "shortcut icon", href: "/LogoAprovaQuiz.png", type: "image/x-icon" },
   ];
 };
 
@@ -18,10 +20,20 @@ export const meta: MetaFunction = () => {
 }
 
 export default function Index() {
+
+  // Código teste do axios
+  useEffect(() => {
+    axios.get("https://api.ipify.org?format=json").then(response => {
+      alert("\nseu ip é = " + response.data.ip);
+    })
+      .catch();
+  }, [])
+
+
   return (
     <main>
       <Header />
-      
+
       <div className="vh-100 d-flex flex-column justify-content-center align-items-center bannerHome">
         <div className="container h-100">
           <div className="row h-100">
