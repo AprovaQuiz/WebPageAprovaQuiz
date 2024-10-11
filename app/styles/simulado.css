@@ -1,0 +1,15 @@
+.h1Simulado {
+    color: var(--text-roxo-secundario) !important;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.txtSimulado {
+    color: var(--text-roxo-principal) !important;
+    display:flex;
+    Justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
