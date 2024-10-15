@@ -13,9 +13,13 @@
     "typegen": "wrangler types"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^2.12.1",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@remix-run/cloudflare": "^2.13.1",
     "@remix-run/cloudflare-pages": "^2.12.1",
-    "@remix-run/react": "^2.12.1",
+    "@remix-run/node": "^2.13.1",
+    "@remix-run/react": "^2.13.1",
     "aprovaquiz": "file:",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",

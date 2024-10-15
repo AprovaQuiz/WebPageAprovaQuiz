@@ -5,6 +5,10 @@ import { Header } from "~/components/Header";
 import home from "~/styles/home.css?url";
 import axios from "axios";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Importando FontAwesomeIcon
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Importando o ícone de seta
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export const links: LinksFunction = () => {
   return [
@@ -29,7 +33,6 @@ export default function Index() {
       .catch();
   }, [])
 
-
   return (
     <main>
       <Header />
@@ -45,6 +48,7 @@ export default function Index() {
               </p>
               <Link to="/Simulado" className="btn btn-lg btn-light botaoSimulado">
                 Ir para o simulado
+                <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '8px', color: '#3C1673' }} /> {/* Ícone da seta */}
               </Link>
             </div>
 
@@ -63,6 +67,5 @@ export default function Index() {
 
       <Footer />
     </main>
-
   );
 }
