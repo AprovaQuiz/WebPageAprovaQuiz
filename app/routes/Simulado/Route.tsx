@@ -40,7 +40,7 @@ export default function Simulado() {
       <Header />
       <div>
           <h1 className="h1Simulado">Simulados</h1>
-          <text className="txtSimulado">De qual caderno você deseja fazer o simulado?</text>
+          <p className="txtSimulado">De qual caderno você deseja fazer o simulado?</p>
           <Grid cards={cards} />
         </div>  
       <Footer />
