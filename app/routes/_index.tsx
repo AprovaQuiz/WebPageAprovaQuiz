@@ -47,7 +47,7 @@ export default function Index() {
               </p>
               <Link to="/Simulado" className="btn btn-lg btn-light botaoSimulado">
                 Ir para o simulado
-                <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '8px', color: '#3C1673' }} /> {/* Ícone da seta */}
+                <FontAwesomeIcon icon={faArrowRight} className="icon" style={{ marginLeft: '8px', color: '#3C1673' }} /> {/* Ícone da seta */}
               </Link>
             </div>
 

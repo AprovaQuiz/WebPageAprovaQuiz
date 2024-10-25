@@ -203,3 +203,8 @@ h1 {
         font-size: 18px;              /* Tamanho da fonte ajustado */
     }
 }
+
+.icon{
+    width: 20px;
+    height: 20px;
+}
