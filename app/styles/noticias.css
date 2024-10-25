@@ -1,0 +1,39 @@
+.h1Noticia {
+    color: var(--text-roxo-secundario) !important;
+    text-align: center;
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.card {
+  width: 80%;
+  margin-bottom: 20px; 
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; 
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; 
+}
+
+.card-body .btn {
+  margin-top: auto;
+  width: 20%;
+  background-color: #8A45ED;
+  border: none;
+  border-radius: 20px;
+}
