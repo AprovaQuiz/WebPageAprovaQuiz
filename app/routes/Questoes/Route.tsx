@@ -1,9 +1,19 @@
-import { MetaFunction } from "@remix-run/cloudflare";
+import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-import { Questao } from "~/components/Questao"; 
+import { Questao } from "~/components/Questao";
 
-import '../../styles/questoes.css';
+
+// Forma de importação de css
+import questoesCss from '~/styles/questoes.css?url';
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: questoesCss }
+  ];
+};
+
+
 
 export const meta: MetaFunction = () => {
   return [
@@ -40,10 +50,10 @@ export default function Simulado() {
     <main>
       <Header />
       <div className="body">
-        <Questao questao={questao} /> 
+        <Questao questao={questao} />
 
         <div className="text-center mt-4">
-          <button className="btn-responder">Responder</button> 
+          <button className="btn-responder">Responder</button>
         </div>
       </div>
       <Footer />
