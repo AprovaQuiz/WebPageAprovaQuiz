@@ -52,7 +52,7 @@ export default function Index() {
             </div>
 
             {/* Right Section */}
-            <div className="col-md-6 d-flex justify-content-end align-items-center">
+            <div className="col-md-6 d-flex justify-content-center align-items-center">
               <img
                 src="/AprovaCabeca.png"
                 alt="Logo"
