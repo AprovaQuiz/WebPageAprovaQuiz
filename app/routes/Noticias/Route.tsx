@@ -3,7 +3,7 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { Grid } from "~/components/GridSimpleCard";
 
-import '../../styles/noticias.css';
+import '~/styles/noticias.css';
 
 export const meta: MetaFunction = () => {
   return [
@@ -35,8 +35,7 @@ export default function Notícias() {
     <main>
       <Header />
       <div>
-          <h1 className="h1Noticia">Noticias</h1>
-          
+          <h1 className="h1Noticia">Notícias</h1>
           <Grid cards={cards} />
         </div>  
       <Footer />

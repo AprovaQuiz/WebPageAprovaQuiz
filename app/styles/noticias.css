@@ -33,7 +33,54 @@
 .card-body .btn {
   margin-top: auto;
   width: 20%;
-  background-color: #8A45ED;
+  background-color: var(--background-roxo-principal);
   border: none;
   border-radius: 20px;
+}
+
+.container-noticia {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.titulo-noticia {
+  font-weight: bold;
+  color: var(--text-roxo-principal); 
+  margin-bottom: 0.5rem;
+}
+
+.divider {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd; 
+  margin-bottom: 1.5rem;
+}
+
+.subtitulo-noticia {
+  font-weight: 500;
+  color:  var(--text-secundario); 
+}
+
+.data-noticia {
+  color:  var(--text-secundario); 
+  margin: 0;
+}
+
+.corpo-noticia {
+  line-height: 1.6;
+  color:  var(--text-secundario);
+}
+
+.corpo-noticia h5 {
+  color:  var(--text-primario);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.corpo-noticia p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.py-5 {
+  padding-top: 0 !important;
 }

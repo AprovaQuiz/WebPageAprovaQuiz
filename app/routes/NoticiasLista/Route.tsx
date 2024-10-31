@@ -3,7 +3,7 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import Cards from "./card";
 
-import '../../styles/noticias.css';
+import '~/styles/noticias.css';
 
 export const meta: MetaFunction = () => {
   return [
