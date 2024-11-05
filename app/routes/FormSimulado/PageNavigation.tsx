@@ -13,7 +13,7 @@ export default function PageNavigation() {
     const [materiaEscolhida, setMateriaEscolhida] = useState("")
 
     async function HandleAxios() {
-        await axiosAprovaApi.get("/subjects")
+        await axiosAprovaApi.get("/subjects/withImages")
             .then((r) => { setMaterias(r.data) })
             .catch(() => { throw new Error("Falha ao carregar Matérias") })
     }

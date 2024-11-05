@@ -1,4 +1,6 @@
 
+import { Buffer } from 'buffer';
+
 export interface ImageInterface {
 
     name: string,
@@ -31,6 +33,8 @@ export function GridMateria(props: GridProps) {
                     function image() {
 
                         if (materia.image != null) {
+
+                            console.log(materia.image.img.data)
 
                             return `data:image/png;base64,${Buffer.from(materia.image.img.data).toString('base64')}`
                         } else {
