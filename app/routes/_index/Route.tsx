@@ -41,7 +41,7 @@ export default function Index() {
         setNoticias(r.data);
       })
       .catch((e) => {
-        alert(e)
+        console.log(e)
       });
   }, []);
 
@@ -62,7 +62,7 @@ export default function Index() {
               <p className="lead mb-4 text-light">
                 Teste seus conhecimentos com nosso simulado!
               </p>
-              <Link to="/Simulado" className="btn btn-lg btn-light botaoSimulado">
+              <Link to="/FormSimulado" className="btn btn-lg btn-light botaoSimulado">
                 Ir para o simulado
                 <FontAwesomeIcon icon={faArrowRight} className="icon" style={{ marginLeft: '8px', color: '#3C1673' }} /> {/* Ícone da seta */}
               </Link>

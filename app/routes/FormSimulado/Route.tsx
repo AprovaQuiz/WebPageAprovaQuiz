@@ -24,7 +24,7 @@ export default function Simulado() {
     return (
         <main>
             <Header />
-            <h1 className="h1Simulado">Simulados</h1>
+            <h1 className="h1Simulado">Simulado</h1>
             <PageNavigation />
             <Footer />
         </main>

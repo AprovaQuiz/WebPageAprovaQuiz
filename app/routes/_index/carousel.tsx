@@ -27,7 +27,7 @@ export const dataCadernos = [
         imgSrc: "https://static.preparaenem.com/conteudo_legenda/8dbfcd8020e017e7942244a772b8b147.jpg"
     },
     {
-        title: "Toda as Matérias",
+        title: "Todas as Matérias",
         imgSrc: "https://i0.wp.com/radio.ufpa.br/wp-content/uploads/2019/02/Linguagens&C%C3%B3digos.png?fit=775%2C404&ssl=1",
     },
 ]
