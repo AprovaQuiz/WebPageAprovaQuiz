@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Importando 
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Importando o ícone de seta
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { axiosAprovaApi } from "~/configs/auth";
-import { Carousel } from "./Simulado/carousel";
+import { Carousel } from "./carousel";
 
 
 export const links: LinksFunction = () => {

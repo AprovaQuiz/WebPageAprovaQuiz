@@ -91,6 +91,7 @@ h1 {
 
 .card-body {
     padding: 15px;
+    height: 8rem;
 }
 
 .card-title {

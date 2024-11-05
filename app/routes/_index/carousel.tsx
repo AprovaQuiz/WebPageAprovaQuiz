@@ -9,26 +9,33 @@ import { NavigationOptions } from 'swiper/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
+export const dataCadernos = [
+    {
+        title: "Ciências da Natureza",
+        imgSrc: "https://blog.imaginie.com.br/wp-content/uploads/2022/01/Ciencias-da-Natureza-e-suas-tecnologias.png"
+    },
+    {
+        title: "Ciências Humanas",
+        imgSrc: "https://fach.ufms.br/files/2020/06/IMG_0311.jpg"
+    },
+    {
+        title: "Matemática",
+        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGCC8_29yBICqLj0a64yeAoffBv4j3012N5A&s"
+    },
+    {
+        title: "Linguagens",
+        imgSrc: "https://static.preparaenem.com/conteudo_legenda/8dbfcd8020e017e7942244a772b8b147.jpg"
+    },
+    {
+        title: "Toda as Matérias",
+        imgSrc: "https://i0.wp.com/radio.ufpa.br/wp-content/uploads/2019/02/Linguagens&C%C3%B3digos.png?fit=775%2C404&ssl=1",
+    },
+]
+
+
 export function Carousel() {
 
-    const data = [
-        {
-            nome: "Ciências da Natureza",
-            linkImagem: "https://blog.imaginie.com.br/wp-content/uploads/2022/01/Ciencias-da-Natureza-e-suas-tecnologias.png"
-        },
-        {
-            nome: "Ciências Humanas",
-            linkImagem: "https://fach.ufms.br/files/2020/06/IMG_0311.jpg"
-        },
-        {
-            nome: "Matemática",
-            linkImagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGCC8_29yBICqLj0a64yeAoffBv4j3012N5A&s"
-        },
-        {
-            nome: "Linguagens",
-            linkImagem: "https://static.preparaenem.com/conteudo_legenda/8dbfcd8020e017e7942244a772b8b147.jpg"
-        }
-    ]
+    const data = dataCadernos
 
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
@@ -62,14 +69,16 @@ export function Carousel() {
         >
             {data.map((data) => {
                 return (
-                    <SwiperSlide key={data.nome}>
-                        <Link to={`/Materias/?pertence=${data.nome}`}>
+                    <SwiperSlide key={data.title}>
+                        <Link to={`/Materias/?pertence=${data.title}`}>
                             <div className="col-md-11 mb-4">
                                 <div className="card border-0">
-                                    <img src={data.linkImagem} alt="Ciências Humanas" className="card-img-top img-responsive" />
+                                    <img src={data.imgSrc} alt={data.title} className="card-img-top img-responsive" />
                                     <div className="card-body text-center">
-                                        <h5 className="card-title">Questões de {data.nome}</h5>
-                                        <h6 className="card-subtitle text-muted  py-4">Questões apenas de matérias de {data.nome}.</h6>
+                                        <h5 className="card-title">Questões de {data.title}</h5>
+                                        {data.title != "Toda as Matérias" &&
+                                            <h6 className="card-subtitle text-muted  py-4">Questões apenas de matérias de {data.title}.</h6>
+                                        }
                                     </div>
                                 </div>
                             </div>

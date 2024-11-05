@@ -1,16 +1,22 @@
-/* eslint-disable react/prop-types */
-import '../styles/simpleCard.css';
-
 interface GridProps {
-    cards: { title: string; imgSrc: string }[];
+  cards: { title: string; imgSrc: string }[];
+  setNumeroPagina: React.Dispatch<number>
+  setTipoDado: React.Dispatch<string>
 }
-  
-export const Grid: React.FC<GridProps> = ({ cards }) => {
-    return (
-      <div className="container text-center">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        {cards.map((card, index) => (
-          <div key={index} className="col">
+
+export function Grid(props: GridProps) {
+  return (
+    <div className="container text-center">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        {props.cards.map((card, index) => (
+          <button key={index}
+            className="col buttonCard"
+            onClick={() => {
+              props.setNumeroPagina(1)
+              props.setTipoDado(card.title)
+            }}
+            tabIndex={index}
+          >
             <div className="card custom-card">
               <div
                 className="card-background"
@@ -21,9 +27,9 @@ export const Grid: React.FC<GridProps> = ({ cards }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </button>
         ))}
       </div>
-      </div>
-    );
-  };
+    </div>
+  );
+}

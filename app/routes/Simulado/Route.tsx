@@ -4,15 +4,15 @@ import { Header } from "~/components/Header";
 import { Grid } from "~/components/GridSimpleCard";
 
 import simulado from '~/styles/simulado.css?url';
+import grid from '~/styles/simpleCard.css?url';
 
 
 export const links: LinksFunction = () => {
   return [
-    { rel: "stylesheet", href: simulado }
+    { rel: "stylesheet", href: simulado },
+    { rel: "stylesheet", href: grid }
   ];
 };
-
-
 
 export const meta: MetaFunction = () => {
   return [
