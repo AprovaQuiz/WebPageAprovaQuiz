@@ -1,6 +1,14 @@
-import { MetaFunction } from "@remix-run/cloudflare";
+import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Header } from "~/components/HeaderSimples";
-import '../../styles/auth.css';
+import auth from '~/styles/auth.css?url';
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: auth }
+  ];
+};
+
+
 
 export const meta: MetaFunction = () => {
   return [{ title: "Registrar" }];

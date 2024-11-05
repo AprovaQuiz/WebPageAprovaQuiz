@@ -1,8 +1,16 @@
-import {Footer} from "~/components/Footer";
-import {Header} from "~/components/Header";
+import { Footer } from "~/components/Footer";
+import { Header } from "~/components/Header";
 import Noticia from "./Noticia";
+import { LinksFunction } from "@remix-run/cloudflare";
+import noticias from '~/styles/noticias.css?url';
 
-import '~/styles/noticias.css';
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: noticias }
+  ];
+};
+
 
 interface Paragrafo {
   secao: string;

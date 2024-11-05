@@ -1,9 +1,18 @@
-import { MetaFunction } from "@remix-run/cloudflare";
+import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { Grid } from "~/components/GridSimpleCard";
 
-import '../../styles/simulado.css';
+import simulado from '~/styles/simulado.css?url';
+
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: simulado }
+  ];
+};
+
+
 
 export const meta: MetaFunction = () => {
   return [
@@ -15,7 +24,7 @@ export default function Simulado() {
   const cards = [
     {
       title: "Ciências Humanas",
-      imgSrc: "https://via.placeholder.com/250x150", 
+      imgSrc: "https://via.placeholder.com/250x150",
     },
     {
       title: "Matemática e suas Tecnologias",
@@ -39,10 +48,10 @@ export default function Simulado() {
     <main>
       <Header />
       <div>
-          <h1 className="h1Simulado">Simulados</h1>
-          <p className="txtSimulado">De qual caderno você deseja fazer o simulado?</p>
-          <Grid cards={cards} />
-        </div>  
+        <h1 className="h1Simulado">Simulados</h1>
+        <p className="txtSimulado">De qual caderno você deseja fazer o simulado?</p>
+        <Grid cards={cards} />
+      </div>
       <Footer />
     </main>
 

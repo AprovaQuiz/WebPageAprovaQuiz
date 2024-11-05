@@ -1,9 +1,17 @@
-import { MetaFunction } from "@remix-run/cloudflare";
+import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { Grid } from "~/components/GridSimpleCard";
 
-import '~/styles/noticias.css';
+import noticias from '~/styles/noticias.css?url';
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: noticias }
+  ];
+};
+
+
 
 export const meta: MetaFunction = () => {
   return [
@@ -15,7 +23,7 @@ export default function Notícias() {
   const cards = [
     {
       title: "ENEM",
-      imgSrc: "https://via.placeholder.com/250x150", 
+      imgSrc: "https://via.placeholder.com/250x150",
     },
     {
       title: "SISU",
@@ -35,9 +43,9 @@ export default function Notícias() {
     <main>
       <Header />
       <div>
-          <h1 className="h1Noticia">Notícias</h1>
-          <Grid cards={cards} />
-        </div>  
+        <h1 className="h1Noticia">Notícias</h1>
+        <Grid cards={cards} />
+      </div>
       <Footer />
     </main>
 

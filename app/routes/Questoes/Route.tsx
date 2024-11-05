@@ -3,7 +3,6 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { Questao } from "~/components/Questao";
 
-
 // Forma de importação de css
 import questoesCss from '~/styles/questoes.css?url';
 
@@ -12,8 +11,6 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: questoesCss }
   ];
 };
-
-
 
 export const meta: MetaFunction = () => {
   return [

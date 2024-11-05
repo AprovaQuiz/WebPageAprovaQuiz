@@ -3,11 +3,13 @@ import { Link } from "@remix-run/react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import home from "~/styles/home.css?url";
-import axios from "axios";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Importando FontAwesomeIcon
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Importando o ícone de seta
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { axiosAprovaApi } from "~/configs/auth";
+import { Carousel } from "./Simulado/carousel";
+
 
 export const links: LinksFunction = () => {
   return [
@@ -22,15 +24,30 @@ export const meta: MetaFunction = () => {
   ];
 }
 
+interface NoticiasInterface {
+  id: string,
+  titulo: string,
+  linkImagem: string,
+}
+
 export default function Index() {
 
-  // Código teste do axios
+  const [noticias, setNoticias] = useState<NoticiasInterface[]>([])
+
+  const handleGet = useCallback(async () => {
+    await axiosAprovaApi
+      .get("/news")
+      .then((r) => {
+        setNoticias(r.data);
+      })
+      .catch((e) => {
+        alert(e)
+      });
+  }, []);
+
   useEffect(() => {
-    axios.get("https://api.ipify.org?format=json").then(response => {
-      console.log("\nseu ip é = " + response.data.ip);
-    })
-      .catch();
-  }, [])
+    handleGet()
+  }, [handleGet])
 
   return (
     <main>
@@ -73,70 +90,14 @@ export default function Index() {
           Escolha um caderno e comece seus estudos agora mesmo!
         </p>
 
-        <div id="cadernosCarousel" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            {/* Card Ciências Humanas */}
-            <div className="carousel-item active">
-              <div className="row">
-                <div className="col-md-4 mb-4">
-                  <div className="card border-0">
-                    <img src="placeholder_image.png" alt="Ciências Humanas" className="card-img-top" />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">Simulado de Ciências Humanas</h5>
-                      <h6 className="card-subtitle mb-2 text-muted">Simulado apenas de matérias de Ciências Humanas.</h6>
-                    </div>
-                  </div>
-                </div>
-                {/* Card Matemática */}
-                <div className="col-md-4 mb-4">
-                  <div className="card border-0">
-                    <img src="placeholder_image.png" alt="Matemática" className="card-img-top" />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">Simulado de Matemática e suas tecnologias</h5>
-                      <h6 className="card-subtitle mb-2 text-muted">Simulado apenas de matérias de Matemática e suas tecnologias.</h6>
-                    </div>
-                  </div>
-                </div>
-                {/* Card Ciências da Natureza */}
-                <div className="col-md-4 mb-4">
-                  <div className="card border-0">
-                    <img src="placeholder_image.png" alt="Ciências da Natureza" className="card-img-top" />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">Simulado de Ciências da Natureza</h5>
-                      <h6 className="card-subtitle mb-2 text-muted">Simulado apenas de matérias de Ciências da Natureza.</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="slide" >
 
-            {/* Card Linguagens e suas Tecnologias */}
-            <div className="carousel-item">
-              <div className="row">
-                <div className="col-md-4 mb-4">
-                  <div className="card border-0">
-                    <img src="placeholder_image.png" alt="Linguagens e suas Tecnologias" className="card-img-top" />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">Simulado de Linguagens e suas tecnologias</h5>
-                      <h6 className="card-subtitle mb-2 text-muted">Simulados apenas de matérias de Linguagens e suas tecnologias.</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Carousel />
 
-          {/* Controles do Carrossel */}
-          <button className="carousel-control-prev" type="button" data-bs-target="#cadernosCarousel" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Anterior</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#cadernosCarousel" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Próximo</span>
-          </button>
         </div>
       </div>
+
+
 
       {/* Nova Seção: Notícias */}
       <div className="container my-5">
@@ -145,33 +106,26 @@ export default function Index() {
         </h2>
 
         <div className="row">
-          {/* Card ENEM */}
-          <div className="col-md-4 mb-4">
-            <div className="card card-news text-white">
-              <img src="/enem.jpg" alt="ENEM" className="card-img-top" />
-              <div className="card-img-overlay d-flex align-items-end">
-                <h5 className="card-title">ENEM</h5>
-              </div>
-            </div>
-          </div>
-          {/* Card SiSU */}
-          <div className="col-md-4 mb-4">
-            <div className="card card-news text-white">
-              <img src="/sisu.jpg" alt="SiSU" className="card-img-top" />
-              <div className="card-img-overlay d-flex align-items-end">
-                <h5 className="card-title">SiSU</h5>
-              </div>
-            </div>
-          </div>
-          {/* Card ProUni */}
-          <div className="col-md-4 mb-4">
-            <div className="card card-news text-white">
-              <img src="/prouni.jpg" alt="ProUni" className="card-img-top" />
-              <div className="card-img-overlay d-flex align-items-end">
-                <h5 className="card-title">ProUni</h5>
-              </div>
-            </div>
-          </div>
+
+          {
+            noticias.slice(-3).reverse().map((noticia) => {
+              return (
+                <Link to='#' key={noticia.id} className="col-md-4 mb-4">
+
+                  <div className="card card-news text-white">
+                    <img src={noticia.linkImagem} alt="ENEM" className="card-img-top" />
+                    <div className="card-img-overlay d-flex align-items-end">
+                      <h5 className="card-title">{noticia.titulo}</h5>
+                    </div>
+                  </div>
+
+                </Link>
+              );
+            })
+          }
+
+
+
         </div>
       </div>
 
