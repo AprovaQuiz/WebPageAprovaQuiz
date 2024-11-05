@@ -26,7 +26,7 @@ export default function Simulado() {
       <div className="body">
         <div>
           <h1 className="h1Simulado">Simulados</h1>
-          <p className="txtSimulado">De qual caderno você deseja fazer o simulado?</p>
+          <p className="txtSimulado">Quantas questões você quer em seu simulado?</p>
         </div>
         <div className="row justify-content-center">
           <div className="col-6 col-md-3 mb-4">
