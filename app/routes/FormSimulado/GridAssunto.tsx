@@ -12,7 +12,7 @@ export interface ImageInterface {
 }
 
 interface GridProps {
-    assuntos: { nome: string; image: ImageInterface }[];
+    assuntos: { nome: string; image?: ImageInterface }[];
     setNumeroPagina: React.Dispatch<number>
     setTipoDado: React.Dispatch<string>
     numeroPagina: number
@@ -23,7 +23,6 @@ export function GridAssunto(props: GridProps) {
     function setDados(numPag: number, tipoDado: string) {
         props.setNumeroPagina(numPag + 1)
         props.setTipoDado(tipoDado)
-
     }
 
     return (

@@ -3,17 +3,19 @@ import { dataCadernos } from "../_index/carousel";
 import { Grid } from "./GridSimpleCard";
 import { GridMateria, ImageInterface } from "./GridMateria";
 import { axiosAprovaApi } from "~/configs/auth";
-/*import { GridAssunto, ImageInterface } from "./GridAssunto";*/
+import { GridAssunto} from "./GridAssunto";
+import { BodyQtdQuestoes } from "./BodyQtdQuestoes";
 
 export default function PageNavigation() {
 
     const [numeroPagina, setNumeroPagina] = useState(0)
 
     const [caderno, setCaderno] = useState("")
-    const [materias, setMaterias] = useState<{ nome: string; image: ImageInterface; pertence: string }[]>([])
-    /*const [assuntos, setAssunto] = useState<{ nome: string; image: ImageInterface; materia: string }[]>([])*/
+    const [materias, setMaterias] = useState<{_id: string; nome: string; image: ImageInterface; pertence: string}[]>([])
+    const [assuntos, setAssunto] = useState<{ nome: string; image?: ImageInterface}[]>
+    ([{ nome: "Nenhum" , image: undefined}])
     const [materiaEscolhida, setMateriaEscolhida] = useState("")
-    /*const [assuntoEscolhido, setAssuntoEscolhido] = useState("")*/
+    const [assuntoEscolhido, setAssuntoEscolhido] = useState("")
 
     const handleGet = useCallback(async () => {
         await axiosAprovaApi
@@ -31,6 +33,39 @@ export default function PageNavigation() {
     }, [handleGet])
 
 
+    const handleGetTopics = useCallback(async (materia : string) => {
+        await axiosAprovaApi
+            .get(`/subjects/topics/${materia}`)
+            .then((r) => {
+                if (materia != "Nenhuma")
+                    setAssunto(assuntos.concat(r.data.topics));
+                else
+                    setAssunto(assuntos.concat(r.data))
+            })
+            .catch((e) => {
+                console.log(e)
+            });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        if (numeroPagina == 2)
+        handleGetTopics(materiaEscolhida)
+    }, [handleGetTopics,materiaEscolhida,numeroPagina])
+    
+
+    function  filteredMaterias(cadernoFunc: string) {
+        if (cadernoFunc != "Todas as Matérias")
+        {
+            return materias.filter((materia) => materia.pertence == cadernoFunc)
+        } else {
+            setNumeroPagina(2)
+            setMateriaEscolhida("Nenhuma")
+            return materias
+        }
+        
+    }
+
     if (numeroPagina == 0) {
         return (
             <>
@@ -39,38 +74,42 @@ export default function PageNavigation() {
             </>
         )
     }
-    else if (numeroPagina == 1) {
-
-        const filteredMaterias = caderno != "Todas as Matérias" ?
-            materias.filter((materia) => materia.pertence == caderno) :
-            materias
-
+    else if (numeroPagina == 1) { 
         return (
             <div>
                 <p className="txtSimulado">De qual matéria você deseja fazer o simulado?</p>
-                <GridMateria materias={filteredMaterias} setNumeroPagina={setNumeroPagina} setTipoDado={setMateriaEscolhida} numeroPagina={numeroPagina} />
+                <GridMateria materias={filteredMaterias(caderno)} setNumeroPagina={setNumeroPagina} setTipoDado={setMateriaEscolhida} numeroPagina={numeroPagina} />
                 <button type="button" className="btn float-left m-5" onClick={() => setNumeroPagina(numeroPagina - 1)}>Voltar</button >
             </div>
         )
     }
-    /*
-        else if (numeroPagina == 2) {
+
+    else if (numeroPagina == 2) {
+
+        return (
+            <div>
+                <p className="txtSimulado">Sobre qual assunto você quer fazer o Simulado?</p>
+                <GridAssunto assuntos={assuntos} setNumeroPagina={setNumeroPagina} setTipoDado={setAssuntoEscolhido} numeroPagina={numeroPagina} />
+                <button type="button" className="btn float-left m-5" onClick={() => {
+                    if (materiaEscolhida != "Nenhuma")
+                        setNumeroPagina(numeroPagina - 1)
+                    else
+                        setNumeroPagina(0)
+                }}>Voltar</button >
+            </div>
+        )
+    }
+
+    else if (numeroPagina == 3){
+        return (
+            <div>
+                <p className="txtSimulado">Quantas questões você quer em seu simulado?</p>
+                <BodyQtdQuestoes assunto={assuntoEscolhido} materia={materiaEscolhida}/>
+                <button type="button" className="btn float-left m-5" onClick={() => setNumeroPagina(numeroPagina - 1)}>Voltar</button >
+            </div>
+        )
+    }
     
-            HandleAxios()
-    
-            const filteredAssuntos = materiaEscolhida != "Todos os Assuntos" ?
-                assuntos.filter((assunto) => assunto.materia == materiaEscolhida) :
-                assuntos
-    
-            return (
-                <>
-                    <p className="txtSimulado">Sobre qual assunto você quer fazer o Simulado?</p>
-                    <GridAssunto assuntos={filteredAssuntos} setNumeroPagina={setNumeroPagina} setTipoDado={setAssuntoEscolhido} numeroPagina={numeroPagina} />
-                    <button type="button" className="btn float-left m-5" onClick={() => setNumeroPagina(numeroPagina - 1)}>Voltar</button >
-                </>
-            )
-        }
-    */
     else {
         return (
             <>
