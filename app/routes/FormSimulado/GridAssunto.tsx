@@ -12,7 +12,7 @@ export interface ImageInterface {
 }
 
 interface GridProps {
-    assuntos: { nome: string; image?: ImageInterface }[];
+    assuntos?: { nome: string; image?: ImageInterface }[];
     setNumeroPagina: React.Dispatch<number>
     setTipoDado: React.Dispatch<string>
     numeroPagina: number
@@ -28,7 +28,7 @@ export function GridAssunto(props: GridProps) {
     return (
         <div className="container text-center">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-                {props.assuntos.map((assunto, index) => {
+                {props.assuntos?.map((assunto, index) => {
                     function image() {
 
                         if (assunto.image != null) {
