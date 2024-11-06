@@ -76,3 +76,26 @@
 .bi {
   font-size: 1.2rem;
 }
+
+.modal-title {
+  color: var(--text-roxo-secundario);
+  font-weight: bold;
+}
+
+.modal-header, .modal-footer{
+  border: none !important;
+}
+
+.input-group-text {
+  background: transparent;
+  border: none !important;
+}
+
+.input-group .form-control {
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.input-group-text i {
+  color: var(--text-roxo-secundario);
+}

@@ -2,6 +2,7 @@ import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { useState } from 'react';
+import  ChangePasswordModal  from "./Modal";
 
 import perfil from '~/styles/perfil.css?url';
 
@@ -20,6 +21,7 @@ export const meta: MetaFunction = () => {
 
 function Perfil() {
     const [isEditing, setIsEditing] = useState(false);
+    const [showPasswordModal, setShowPasswordModal] = useState(false);
   
     const [userData, setUserData] = useState({
       nome: 'Tomiwa Oyeledu Dolapo',
@@ -32,6 +34,9 @@ function Perfil() {
     const handleEdit = () => setIsEditing(true);
     const handleSave = () => setIsEditing(false);
   
+    const handleShowPasswordModal = () => setShowPasswordModal(true);
+    const handleClosePasswordModal = () => setShowPasswordModal(false);
+    
     return (
       <div>
         <Header />
@@ -111,7 +116,12 @@ function Perfil() {
               <ul className="list-unstyled">
                 <li className="d-flex align-items-start mb-3">
                   <i className="bi bi-shield-lock-fill me-2 text-primary"></i>
-                  <button className="btn btn-link text-primary p-0">Alterar senha</button>
+                  <button onClick={handleShowPasswordModal} className="btn btn-link text-primary p-0">
+                    Alterar senha
+                  </button>
+
+                  <ChangePasswordModal show={showPasswordModal} onClose={handleClosePasswordModal} />
+    
                 </li>
                 <li className="d-flex align-items-center mb-3">
                   <i className="bi bi-moon-fill me-2 text-primary"></i>
