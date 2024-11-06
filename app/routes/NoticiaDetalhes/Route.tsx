@@ -1,16 +1,16 @@
-import { MetaFunction } from "@remix-run/cloudflare";
-import {Footer} from "~/components/Footer";
-import {Header} from "~/components/Header";
+import { Footer } from "~/components/Footer";
+import { Header } from "~/components/Header";
 import Noticia from "./Noticia";
+import { LinksFunction } from "@remix-run/cloudflare";
+import noticias from '~/styles/noticias.css?url';
 
-import '~/styles/noticias.css?url';
 
-
-export const meta: MetaFunction = () => {
+export const links: LinksFunction = () => {
   return [
-    { title: "Notícias" },
+    { rel: "stylesheet", href: noticias }
   ];
-}
+};
+
 
 interface Paragrafo {
   secao: string;

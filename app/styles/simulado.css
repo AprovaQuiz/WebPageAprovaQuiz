@@ -38,3 +38,8 @@
 .h-100 {
     border-radius: 20px;
 }
+
+.btn{
+ background-color: var(--text-roxo-principal);
+ color: #fff;
+}

@@ -1,27 +1,50 @@
-export function Questao({ questao }: { questao: any }) {
+interface QuestaoProps {
+  numeroQuestao: number,
+  questao: {
+    _id: string,
+    enunciado: string,
+    pergunta: string,
+    alternativas: { textoAlt: string }[]
+  } | undefined
+}
+
+export function Questao(props: QuestaoProps) {
+
+
+
+  function handleRespMarcadas(index: number) {
+
+    const respMarcada = {
+      questao: props.questao?._id,
+      respRegistrada: index,
+      index: props.numeroQuestao
+    }
+
+    const respostasMarcadas = JSON.parse(localStorage.getItem("RespMarcadas") || "[]");
+
+    respostasMarcadas[props.numeroQuestao] = respMarcada;
+
+    localStorage.setItem("RespMarcadas", JSON.stringify(respostasMarcadas));
+
+  }
+
+
   return (
     <div className="container-fluid py-5 questao-bg">
       <div className="container">
-        <h1 className="text-center mb-4 questao-titulo">Questão {questao.id}</h1>
+        <h1 className="text-center mb-4 questao-titulo">Questão {props.numeroQuestao + 1}</h1>
 
-        <p className="questao-texto">{questao.pergunta}</p>
+        <p className="questao-texto">{props.questao?.enunciado}</p>
 
         <p>
-          <strong>Entre elas podemos elencar:</strong>
-          <ol>
-            {questao.elencar.map((item: string, index: number) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ol>
+          {props.questao?.enunciado}
         </p>
 
-        <p><strong>{questao.instrucoes}</strong></p>
-
         <div className="opcoes">
-          {questao.alternativas.map((alternativa: any) => (
-            <div className="opcao" key={alternativa.id}>
-              <button className="opcao-btn">{alternativa.id}</button>
-              <span>{alternativa.texto}</span>
+          {props.questao?.alternativas.map((alternativa, index) => (
+            <div className="opcao" key={index}>
+              <button className="opcao-btn" onClick={() => { handleRespMarcadas(index) }}> {String.fromCharCode(65 + index)}</button>
+              <span>{alternativa.textoAlt}</span>
             </div>
           ))}
         </div>

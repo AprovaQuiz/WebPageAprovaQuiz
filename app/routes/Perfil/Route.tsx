@@ -1,9 +1,16 @@
-import { MetaFunction } from "@remix-run/cloudflare";
+import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { useState } from 'react';
 
-import '~/styles/perfil.css?url';
+import perfil from '~/styles/perfil.css?url';
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" },
+    { rel: "stylesheet", href: perfil }
+  ];
+};
 
 export const meta: MetaFunction = () => {
   return [

@@ -91,6 +91,7 @@ h1 {
 
 .card-body {
     padding: 15px;
+    height: 8rem;
 }
 
 .card-title {
@@ -104,11 +105,42 @@ h1 {
     color: #4E596B;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.carousel-control-prev{
+    padding-right: 100px;
+}
+
+.custom-swiper-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #fff;
     background-color: #3C1673;
+    border: none;
     border-radius: 50%;
-    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.custom-swiper-button.prev {
+left: 10px;
+}
+
+.custom-swiper-button.next {
+right: 35px;
+}
+
+.custom-swiper-button:hover {
+background-color: rgba(162, 111, 235, 1);
+}
+
+
+.carousel-control-next, .carousel-control-prev {
+    width: 5% !important;
 }
 
 .carousel-indicators {

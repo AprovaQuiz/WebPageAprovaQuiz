@@ -1,10 +1,19 @@
+
 interface GridProps {
   cards: { title: string; imgSrc: string }[];
   setNumeroPagina: React.Dispatch<number>
   setTipoDado: React.Dispatch<string>
+  numeroPagina: number
 }
 
 export function Grid(props: GridProps) {
+
+  function setDados(numPag: number, tipoDado: string) {
+    props.setNumeroPagina(numPag + 1)
+    props.setTipoDado(tipoDado)
+
+  }
+
   return (
     <div className="container text-center">
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
@@ -12,8 +21,7 @@ export function Grid(props: GridProps) {
           <button key={index}
             className="col buttonCard"
             onClick={() => {
-              props.setNumeroPagina(1)
-              props.setTipoDado(card.title)
+              setDados(props.numeroPagina, card.title)
             }}
             tabIndex={index}
           >
