@@ -1,0 +1,23 @@
+.h1perfil {
+    color: var(--text-roxo-secundario) !important;
+  }
+  
+  .btn-outline-primary {
+    color: #7b2cbf !important;
+    border-color: #7b2cbf !important;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #7b2cbf;
+    color: #fff;
+  }
+  
+  .form-check-input {
+    transform: scale(1.2);
+  }
+  
+  /* Icones */
+  .bi {
+    font-size: 1.2rem;
+  }
+  

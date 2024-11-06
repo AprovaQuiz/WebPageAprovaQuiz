@@ -1,19 +1,9 @@
-import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
+import { MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { Questao } from "~/components/Questao";
 
-
-// Forma de importação de css
-import questoesCss from '~/styles/questoes.css?url';
-
-export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: questoesCss }
-  ];
-};
-
-
+import '~/styles/questoes.css?url';
 
 export const meta: MetaFunction = () => {
   return [

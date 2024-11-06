@@ -1,8 +1,16 @@
+import { MetaFunction } from "@remix-run/cloudflare";
 import {Footer} from "~/components/Footer";
 import {Header} from "~/components/Header";
 import Noticia from "./Noticia";
 
-import '~/styles/noticias.css';
+import '~/styles/noticias.css?url';
+
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Notícias" },
+  ];
+}
 
 interface Paragrafo {
   secao: string;

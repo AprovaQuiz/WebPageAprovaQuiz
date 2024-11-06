@@ -1,6 +1,6 @@
 import { MetaFunction } from "@remix-run/cloudflare";
 import { Header } from "~/components/HeaderSimples";
-import '../../styles/auth.css';
+import '~/styles/auth.css?url';
 
 export const meta: MetaFunction = () => {
   return [{ title: "Registrar" }];

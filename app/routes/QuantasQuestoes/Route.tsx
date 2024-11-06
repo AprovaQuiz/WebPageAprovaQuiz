@@ -2,7 +2,7 @@ import { MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 
-import '../../styles/simulado.css';
+import '~/styles/simulado.css?url';
 
 export const meta: MetaFunction = () => {
   return [

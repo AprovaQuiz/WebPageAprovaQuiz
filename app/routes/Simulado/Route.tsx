@@ -3,7 +3,7 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { Grid } from "~/components/GridSimpleCard";
 
-import '../../styles/simulado.css';
+import '~/styles/simulado.css?url';
 
 export const meta: MetaFunction = () => {
   return [
