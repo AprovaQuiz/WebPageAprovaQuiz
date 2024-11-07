@@ -16,7 +16,6 @@ export async function loader({
   const urlParams = new URLSearchParams(params.questaoIndex)
 
   if (urlParams.has('indexQuestion')) {
-
     return urlParams.get('indexQuestion')
 
   } else {
@@ -50,11 +49,11 @@ export default function Simulado() {
 
   const [questoes, setQuestoes] = useState<{ questoes: QuestaoInterface[] } | undefined>(undefined);
 
-  function questaoJson(): { questoes: QuestaoInterface[] } | undefined {
+  function questaoJson(): { questoes: QuestaoInterface[] } {
     if (typeof window !== "undefined" && localStorage.getItem("questoesSimulado")) {
       return JSON.parse(localStorage.getItem("questoesSimulado") || "");
     }
-    return undefined;
+    throw new Error("Url inválida");
   }
 
   useEffect(() => {
