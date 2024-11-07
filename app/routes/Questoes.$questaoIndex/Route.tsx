@@ -1,12 +1,12 @@
 import { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-import { Questao } from "~/components/Questao";
 
 // Forma de importação de css
 import questoesCss from '~/styles/questoes.css?url';
+import { Questao } from "./Questao";
 
 
 export async function loader({
@@ -44,10 +44,9 @@ interface QuestaoInterface {
   alternativas: { textoAlt: string }[]
 }
 
-
-
 export default function Simulado() {
   const dataIndex = useLoaderData<typeof loader>();
+  const navigate = useNavigate();
 
   const [questoes, setQuestoes] = useState<{ questoes: QuestaoInterface[] } | undefined>(undefined);
 
@@ -67,14 +66,32 @@ export default function Simulado() {
   const questaoCorrente: QuestaoInterface | undefined = questoes?.questoes[Number(dataIndex)]
 
 
+  function BotaoVoltar() {
+    if (Number(dataIndex) == 0)
+      return (
+        <></>
+      )
+    else if (Number(dataIndex) != 0)
+      return (
+        <button className="btn-responder" onClick={() => {
+          navigate(`/Questoes/indexQuestion=${Number(dataIndex) - 1}`)
+        }}>Voltar Para Questão Anterior</button>
+      )
+  }
+
+
   return (
     <main>
       <Header />
       <div className="body">
-        <Questao questao={questaoCorrente} numeroQuestao={Number(dataIndex)} />
+        <Questao
+          questao={questaoCorrente}
+          numeroQuestao={Number(dataIndex)}
+          tamanhoQuestoes={questoes ? questoes.questoes.length : 0}
+        />
 
         <div className="text-center mt-4">
-          <button className="btn-responder">Responder</button>
+          <BotaoVoltar />
         </div>
       </div>
       <Footer />

@@ -29,14 +29,18 @@
 }
 
 .opcao-btn {
-  background-color: var(--text-roxo-secundario);
-  color: var(--background-primario);
-  border: none;
+  color: var(--text-roxo-principal);
+  border: var(--text-roxo-secundario) 5px solid;
   padding: 0.5rem 1rem;
   border-radius: 50%;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+.opcao-marcada, .opcao-btn:hover {
+  color: #fff;
+  background-color: var(--text-roxo-principal);
 }
 
 .btn-responder {

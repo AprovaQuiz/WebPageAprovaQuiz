@@ -24,7 +24,9 @@ export function BodyQtdQuestoes(props: BodyQtdQuestoesProps) {
                     nome_materia: props.materia
                 }))
 
-                navigate(`/Questoes/indexQuestion=0`)
+                localStorage.removeItem("RespMarcadas")
+
+                return navigate(`/Questoes/indexQuestion=0`)
             })
     }
 

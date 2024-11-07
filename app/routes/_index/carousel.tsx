@@ -67,9 +67,9 @@ export function Carousel() {
             }}
             pagination={{ clickable: true }}
         >
-            {data.map((data) => {
+            {data.map((data, index) => {
                 return (
-                    <SwiperSlide key={data.title}>
+                    <SwiperSlide key={index}>
                         <Link to={`/Materias/?pertence=${data.title}`}>
                             <div className="col-md-11 mb-4">
                                 <div className="card border-0">

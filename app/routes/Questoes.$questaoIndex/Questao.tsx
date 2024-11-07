@@ -27,7 +27,7 @@ export function Questao(props: QuestaoProps) {
     if (typeof window !== "undefined" && localStorage.getItem("RespMarcadas"))
       setRespostasMarcadas(JSON.parse(localStorage.getItem("RespMarcadas") || "[]"))
   }, [])
-
+  RespMarcadas
 
   function handleRespMarcadas(index: number) {
 
