@@ -22,7 +22,7 @@ export default function Notícias() {
   return (
     <main>
       <Header />
-      <div>
+      <div className="container-fluid">
         <h1 className="h1Noticia">Noticias</h1>
         <Cards />
       </div>
