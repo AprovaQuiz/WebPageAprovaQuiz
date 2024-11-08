@@ -24,10 +24,12 @@ export const meta: MetaFunction = () => {
   ];
 }
 
-interface NoticiasInterface {
+export interface NoticiasInterface {
   _id: string,
   titulo: string,
   linkImagem: string,
+  resumo: string,
+  createdAt: Date
 }
 
 export default function Index() {
@@ -110,7 +112,7 @@ export default function Index() {
           {
             noticias.slice(-3).reverse().map((noticia) => {
               return (
-                <Link to='#' key={noticia._id} className="col-md-4 mb-4">
+                <Link to={`/Noticias/noticia_id=${noticia._id}`} key={noticia._id} className="col-md-4 mb-4">
 
                   <div className="card card-news text-white">
                     <img src={noticia.linkImagem} alt="ENEM" className="card-img-top" />

@@ -4,7 +4,7 @@ import { Header } from "~/components/HeaderSimples";
 import auth from '~/styles/auth.css?url';
 import Swal from "sweetalert2";
 import { axiosAprovaApi } from "~/configs/auth";
-import { useNavigate } from "@remix-run/react";
+import { Link, useNavigate } from "@remix-run/react";
 import { HandleHistoric } from "../Questoes.$questaoIndex/Questao";
 
 export const links: LinksFunction = () => {
@@ -81,7 +81,7 @@ export default function Login() {
           <h1>Bem-vindo de volta</h1>
           <p>ao AprovaQuiz!</p>
           <p>
-            Se você ainda não tiver uma conta, pode se <a href="/Registrar">registrar aqui!</a>
+            Se você ainda não tiver uma conta, pode se <Link to="/Registrar">registrar aqui!</Link>
           </p>
         </div>
         <div className="auth-right">
