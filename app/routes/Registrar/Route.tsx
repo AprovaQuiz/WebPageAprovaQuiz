@@ -24,6 +24,9 @@ export default function Register() {
   // email
   const [carregandoEmailMenssagem, setCarregandoEmailMessagem] = useState(false);
 
+  // username
+  const [carregandoUsernameMenssagem, setCarregandoUsernameMessagem] = useState(false);
+
   // senha
   const [senha, setSenha] = useState("")
   const [confirmaSenha, setConfirmaSenha] = useState("")
@@ -94,8 +97,14 @@ export default function Register() {
         .catch((e) => {
           if (e.response?.data.message == "Email já cadastrado")
             setCarregandoEmailMessagem(true)
+          else
+            setCarregandoEmailMessagem(false)
 
-          console.log(e)
+          if (e.response?.data.message == "Username já em uso")
+            setCarregandoUsernameMessagem(true)
+          else
+            setCarregandoUsernameMessagem(false)
+
         })
     }
   }
@@ -131,6 +140,9 @@ export default function Register() {
               onChange={handlePhoneNumberChange}
             />
             <input type="text" placeholder="Crie um nome de usuário" name="username" />
+            {carregandoUsernameMenssagem && (
+              <p className='text-danger'>Nome de usuário em uso</p>
+            )}
             <input type="email" placeholder="Email" name="email" />
             {carregandoEmailMenssagem && (
               <p className='text-danger'>E-mail em uso</p>

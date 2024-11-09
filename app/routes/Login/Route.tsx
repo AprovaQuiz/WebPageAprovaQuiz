@@ -62,7 +62,7 @@ export default function Login() {
             Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: `${e.code == 401 ? e.response?.data.message : e.message}`
+              text: `${e.status == 401 ? e.response?.data.message : e.message}`
             })
           })
 

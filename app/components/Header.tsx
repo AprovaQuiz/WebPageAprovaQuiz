@@ -1,5 +1,26 @@
 import { Link } from "@remix-run/react";
 import Dropdown from 'react-bootstrap/Dropdown';
+import Swal from "sweetalert2";
+
+export function logout() {
+    Swal.fire({
+        title: 'Quer realmente sair?',
+        showCancelButton: true,
+        confirmButtonText: 'Deslogar',
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+            localStorage.removeItem("access-token")
+            Swal.fire({
+                title: "Deslogado",
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                icon: "success"
+            }).then(() => { window.location.assign("/") })
+        }
+    })
+
+}
 
 export function Header() {
     return (
@@ -13,7 +34,7 @@ export function Header() {
                         <ul className="nav nav-pills me-3">
                             <li className="nav-item"><Link to="/" className="nav-link" aria-current="page">Home</Link></li>
                             <li className="nav-item"><Link to="/Simulado" className="nav-link">Simulados</Link></li>
-                            <li className="nav-item"><a href="/" className="nav-link">Cadernos</a></li>
+                            <li className="nav-item"><Link to="/" className="nav-link">Cadernos</Link></li>
                             <li className="nav-item"><Link to="/Noticias" className="nav-link">Notícias</Link></li>
                         </ul>
                         <a href="/Login"> <button className="btn btn-outline-white me-2">Login</button></a>

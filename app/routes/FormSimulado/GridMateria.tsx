@@ -2,7 +2,7 @@
 import { Buffer } from 'buffer';
 
 export interface ImageInterface {
-
+    _id?: string,
     name: string,
     img: {
         data: Buffer,
