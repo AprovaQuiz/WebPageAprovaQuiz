@@ -27,9 +27,9 @@ export function Header() {
         <header>
             <nav className="headerAQ navbar">
                 <div className="container-fluid d-flex justify-content-between">
-                    <a className="navbar-brand d-flex align-items-center" href="/">
+                    <Link className="navbar-brand d-flex align-items-center" to="/">
                         <img src="/AprovaLogoHeaderPlaceholder.png" alt="Logo" width="300" height="60" className="d-inline-block align-text-top me-2"></img>
-                    </a>
+                    </Link>
                     <div className="d-flex align-items-center">
                         <ul className="nav nav-pills me-3">
                             <li className="nav-item"><Link to="/" className="nav-link" aria-current="page">Home</Link></li>
