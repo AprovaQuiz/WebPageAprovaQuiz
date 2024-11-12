@@ -29,7 +29,7 @@ export interface NoticiasInterface {
   titulo: string,
   linkImagem: string,
   resumo: string,
-  createdAt: Date
+  updatedAt: Date
 }
 
 export default function Index() {

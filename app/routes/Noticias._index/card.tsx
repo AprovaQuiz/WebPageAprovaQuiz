@@ -26,7 +26,7 @@ const Cards: React.FC = () => {
     <div className="d-flex align-items-center justify-content-center">
       <div className="card-container col-6">
         {noticias.map((noticia, index) => {
-          const actualDate = new Date(noticia.createdAt)
+          const actualDate = new Date(noticia.updatedAt)
           return (
             <div key={index} className="card mb-3">
               <div className="row g-0 h-25">
@@ -53,7 +53,7 @@ const Cards: React.FC = () => {
                       </small>
 
                     </p>
-                    <Link to={`/Noticias/noticia_id=${noticia._id}`} className="btn text-light btn-primary">Ver mais</Link>
+                    <Link to={`/Noticias/noticia_id=${noticia._id}`} className="btn w-50 text-light btn-primary">Ver mais</Link>
                   </div>
                 </div>
               </div>

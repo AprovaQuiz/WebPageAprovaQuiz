@@ -8,7 +8,7 @@ import { useState, useCallback, useEffect } from "react";
 import { axiosAprovaApi } from "~/configs/auth";
 
 
-export async function loader({
+export function loader({
   params,
 }: LoaderFunctionArgs) {
 

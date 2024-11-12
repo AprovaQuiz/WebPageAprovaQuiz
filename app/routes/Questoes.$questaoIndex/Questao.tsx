@@ -73,7 +73,8 @@ export async function HandleHistoric(save: boolean) {
         confirmButtonText: "Desejo salvar!"
       }).then((result) => {
         if (result.isConfirmed) {
-          return window.location.assign("/login")
+          if (localStorage.getItem("access-token")) return window.location.assign("../Historicos")
+          else return window.location.assign("/login")
         }
         if (result.isDenied) {
 

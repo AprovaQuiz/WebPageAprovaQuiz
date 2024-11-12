@@ -2,13 +2,13 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import Historico from "./Historico";
 import { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
-import historicoCss from '~/styles/historico.css';
+import historicoCss from '~/styles/historico.css?url';
 import { useLoaderData } from "@remix-run/react";
 import { useState, useCallback, useEffect } from "react";
 import { axiosAprovaApi } from "~/configs/auth";
 
 
-export async function loader({
+export function loader({
   params,
 }: LoaderFunctionArgs) {
 
@@ -55,9 +55,10 @@ export default function HistoricosDetalhes() {
 
   const handleGet = useCallback(async () => {
     await axiosAprovaApi
-      .get(`/historic/${data}`)
+      .get(`/historics/${data}`)
       .then((r) => {
         setHistorico(r.data);
+        console.log(historico)
       })
       .catch((e) => {
         console.log(e)

@@ -2,7 +2,6 @@ import { useNavigate } from "@remix-run/react";
 import { useEffect, useState } from "react";
 
 interface QuestaoProps {
-  numeroQuestao: number,
   questao: {
     _id: string,
     enunciado: string,
@@ -29,41 +28,11 @@ export function Questao(props: QuestaoProps) {
   }, [])
 
 
-  function handleRespMarcadas(index: number) {
-
-    const respMarcada = {
-      questao: props.questao?._id ?? "",
-      respRegistrada: index,
-      index: props.numeroQuestao
-    }
-
-    if (respostasMarcadas)
-      respostasMarcadas[props.numeroQuestao] = respMarcada;
-
-    localStorage.setItem("RespMarcadas", JSON.stringify(respostasMarcadas));
-
-
-    if (respostasMarcadas)
-
-      if (props.numeroQuestao < props.tamanhoQuestoes - 1)
-        return navigate(`/Questoes/indexQuestion=${props.numeroQuestao + 1}`)
-      else {
-        for (let index = 0; index < respostasMarcadas.length; index++) {
-          if (respostasMarcadas[index] == null) {
-            return navigate(`/Questoes/indexQuestion=${index}`)
-
-          }
-        }
-
-        return navigate("/")
-      }
-  }
-
   function foiMarcada(indexOpcao: number) {
 
     if (respostasMarcadas && typeof respostasMarcadas[props.numeroQuestao] !== "undefined" && respostasMarcadas[props.numeroQuestao] != null)
       if (respostasMarcadas[props.numeroQuestao].respRegistrada == indexOpcao)
-        return { class: "opcao-marcada", texto: " - Alternativa escolhida anteriormente" }
+        return { class: "opcao-marcada", texto: " - Resposta escolhida" }
 
   }
 
@@ -83,9 +52,7 @@ export function Questao(props: QuestaoProps) {
           {props.questao?.alternativas.map((alternativa, index) => (
 
             <div className={`opcao`} key={index}>
-              <button className={`opcao-btn ${foiMarcada(index)?.class}`} onClick={() => {
-                handleRespMarcadas(index)
-              }}>
+              <button className={`opcao-btn ${foiMarcada(index)?.class}`}>
                 {String.fromCharCode(65 + index)}
               </button>
               <span>{alternativa.textoAlt}{foiMarcada(index)?.texto}</span>
