@@ -22,7 +22,7 @@ export function Header() {
                             <a href="/notificacoes" className="me-3">
                                 <i className="bi bi-bell" style={{ color: '#ffffff', fontSize: '1.25rem' }}></i>
                             </a>
-                            <a href="/ajuda" className="me-3">
+                            <a href="/historico" className="me-3">
                                 <i className="bi bi-clock-history" style={{ color: '#ffffff', fontSize: '1.25rem' }}></i>
                             </a>
                             <a href="/perfil">
