@@ -8,8 +8,6 @@ import historico from '~/styles/historico.css?url';
 export const links: LinksFunction = () => {
     return [
         { rel: "stylesheet", href: historico },
-
-
     ];
 };
 
@@ -19,7 +17,7 @@ export const meta: MetaFunction = () => {
     ];
 }
 
-export default function Histórico() {
+export default function Historicos() {
 
     return (
         <main>

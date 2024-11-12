@@ -79,6 +79,7 @@ export function ErrorBoundary() {
         </>
       );
     } else if (error instanceof Error) {
+      console.log(error)
       return (
         <>
           <span>Error</span>

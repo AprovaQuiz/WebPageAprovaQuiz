@@ -1,15 +1,7 @@
 import { useNavigate } from "@remix-run/react";
 import { useEffect, useState } from "react";
 
-interface QuestaoProps {
-  questao: {
-    _id: string,
-    enunciado: string,
-    pergunta: string,
-    alternativas: { textoAlt: string }[]
-  } | undefined,
-  tamanhoQuestoes: number
-}
+
 
 type respMarcada = {
   questao: string, respRegistrada: number, index: number

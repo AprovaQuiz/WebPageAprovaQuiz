@@ -95,6 +95,11 @@
   background-color: var(--text-roxo-principal);
 }
 
+.opcao-certa{
+  color: #fff;
+  background-color: #008000;
+}
+
 .btn-responder {
   background-color: var(--text-roxo-secundario);
   color: var(--background-primario);

@@ -33,8 +33,8 @@ export function Header() {
                     <div className="d-flex align-items-center">
                         <ul className="nav nav-pills me-3">
                             <li className="nav-item"><Link to="/" className="nav-link" aria-current="page">Home</Link></li>
-                            <li className="nav-item"><Link to="/Simulado" className="nav-link">Simulados</Link></li>
-                            <li className="nav-item"><Link to="/" className="nav-link">Cadernos</Link></li>
+                            {/* <li className="nav-item"><Link to="/Simulado" className="nav-link">Simulados</Link></li> */}
+                            {/* <li className="nav-item"><Link to="/" className="nav-link">Cadernos</Link></li> */}
                             <li className="nav-item"><Link to="/Noticias" className="nav-link">Notícias</Link></li>
                         </ul>
                         <a href="/Login"> <button className="btn btn-outline-white me-2">Login</button></a>

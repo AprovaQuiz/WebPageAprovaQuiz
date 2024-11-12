@@ -23,12 +23,68 @@ type respMarcada = {
 }
 
 
+type DataHistoric = {
+  assunto: {
+    nome: string
+  }, materia: {
+    nome: string
+  },
+  auxQuestoes: { questao: string, respRegistrada: number, acerto: boolean }[]
+  qtdDeAcertos: number,
+  qtdDeErros: number
+}
+
+async function Save(data: DataHistoric) {
+
+  let IDMateria = undefined
+  let IDAssunto = undefined
+
+  if (data.assunto.nome != "Nenhum")
+    await axiosAprovaApi.get(`/topics/idTopic/${data.assunto.nome}`)
+      .then((r) => {
+        IDAssunto = r.data.id
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+
+  if (data.materia.nome != "Nenhuma")
+    await axiosAprovaApi.get(`/subjects/idSubject/${data.materia.nome}`)
+      .then((r) => {
+        IDMateria = r.data.id
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+
+  await axiosAprovaApi.post('/historics', {
+    questoesFeitas: data.auxQuestoes,
+    qtdDeAcertos: data.qtdDeAcertos,
+    qtdDeErros: data.qtdDeErros,
+    tipoSimulado: {
+      materia: IDMateria,
+      assunto: IDAssunto
+    }
+  })
+    .then(() => {
+      console.log("Sucesso")
+
+      localStorage.removeItem("RespMarcadas")
+      localStorage.removeItem("questoesSimulado")
+
+      window.location.assign("../Historicos")
+    })
+    .then((e) => {
+      console.log(e)
+    })
+
+}
+
 export async function HandleHistoric(save: boolean) {
 
   let qtdDeAcertos = 0
   let qtdDeErros = 0
-  let IDMateria = undefined
-  let IDAssunto = undefined
+
 
   const auxQuestoes: { questao: string; respRegistrada: number; acerto: boolean; }[] = []
 
@@ -61,7 +117,7 @@ export async function HandleHistoric(save: boolean) {
     })
 
     if (save) {
-      return Swal.fire({
+      Swal.fire({
         title: "Deseja ver suas repostas?",
         text: `Você acertou ${qtdDeAcertos} questões de ${questoes.questoes.length}`,
         footer: 'Para visualizar exatamente quais repostar acertou terá que fazer o login',
@@ -73,56 +129,36 @@ export async function HandleHistoric(save: boolean) {
         confirmButtonText: "Desejo salvar!"
       }).then((result) => {
         if (result.isConfirmed) {
-          if (localStorage.getItem("access-token")) return window.location.assign("../Historicos")
-          else return window.location.assign("/login")
-        }
-        if (result.isDenied) {
+          if (!localStorage.getItem("access-token")) {
+            return window.location.assign("/login")
+          } else {
+            Save({
+              assunto: { nome: questoes.nome_assunto },
+              materia: { nome: questoes.nome_materia },
+              auxQuestoes: auxQuestoes,
+              qtdDeAcertos: qtdDeAcertos,
+              qtdDeErros: qtdDeErros
+            })
+          }
 
-          localStorage.removeItem("RespMarcadas")
-          localStorage.removeItem("questoesSimulado")
-          return window.location.assign("/")
+          if (result.isDenied) {
+
+            localStorage.removeItem("RespMarcadas")
+            localStorage.removeItem("questoesSimulado")
+            return window.location.assign("/")
+          }
         }
       });
+    } else {
+      Save({
+        assunto: { nome: questoes.nome_assunto },
+        materia: { nome: questoes.nome_materia },
+        auxQuestoes: auxQuestoes,
+        qtdDeAcertos: qtdDeAcertos,
+        qtdDeErros: qtdDeErros
+      })
     }
 
-    if (questoes?.nome_assunto != "Nenhum")
-      await axiosAprovaApi.get(`/topics/idTopic/${questoes?.nome_assunto}`)
-        .then((r) => {
-          IDAssunto = r.data.id
-        })
-        .catch((e) => {
-          console.log(e)
-        })
-
-    if (questoes?.nome_materia != "Nenhuma")
-      await axiosAprovaApi.get(`/subjects/idSubject/${questoes?.nome_materia}`)
-        .then((r) => {
-          IDMateria = r.data.id
-        })
-        .catch((e) => {
-          console.log(e)
-        })
-
-    await axiosAprovaApi.post('/historics', {
-      questoesFeitas: auxQuestoes,
-      qtdDeAcertos: qtdDeAcertos,
-      qtdDeErros: qtdDeErros,
-      tipoSimulado: {
-        materia: IDMateria,
-        assunto: IDAssunto
-      }
-    })
-      .then(() => {
-        console.log("Sucesso")
-
-        localStorage.removeItem("RespMarcadas")
-        localStorage.removeItem("questoesSimulado")
-
-        window.location.assign("/")
-      })
-      .then((e) => {
-        console.log(e)
-      })
 
 
   }
@@ -186,7 +222,7 @@ export function Questao(props: QuestaoProps) {
         <p className="questao-texto">{props.questao?.enunciado}</p>
 
         <p>
-          {props.questao?.enunciado}
+          {props.questao?.pergunta}
         </p>
 
         <div className="opcoes">

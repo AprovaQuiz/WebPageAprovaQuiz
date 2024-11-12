@@ -1,11 +1,14 @@
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-import Historico from "./Historico";
+
 import { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
 import historicoCss from '~/styles/historico.css?url';
 import { useLoaderData } from "@remix-run/react";
 import { useState, useCallback, useEffect } from "react";
 import { axiosAprovaApi } from "~/configs/auth";
+import Historico from "./Historico";
+
+
 
 
 export function loader({
@@ -33,16 +36,25 @@ export const meta: MetaFunction = () => {
   return [{ title: "Histórico" }];
 };
 
+export interface QuestaoInterface {
+  _id: string,
+  enunciado: string,
+  pergunta: string,
+  alternativas: { textoAlt: string }[],
+  alternativaCorreta: number
+}
+
 export type HistoricoType = {
   _id: string,
   qtdDeAcertos: number,
   qtdDeErros: number,
-  tipoSimulado: {
-    materia: string,
-    assunto: string
+  tipoSimulado?: {
+    materia?: { nome: string },
+    assunto?: { nome: string }
   },
   questoesFeitas: [{
-    questao: string,
+    _id: string,
+    questao: QuestaoInterface,
     respRegistrada: number,
     acerto: boolean
   }]
@@ -58,7 +70,7 @@ export default function HistoricosDetalhes() {
       .get(`/historics/${data}`)
       .then((r) => {
         setHistorico(r.data);
-        console.log(historico)
+        console.log(r.data)
       })
       .catch((e) => {
         console.log(e)
@@ -67,15 +79,19 @@ export default function HistoricosDetalhes() {
 
   useEffect(() => {
     handleGet()
+
   }, [handleGet])
+
+  const materiaNome = historico?.tipoSimulado?.materia?.nome || "Todas as Matéria"
+  const assuntoNome = historico?.tipoSimulado?.assunto?.nome || "Nenhum"
 
 
   return (
     <div className="bg-light min-vh-100">
       <Header />
-      <h1 className="h1Historico">{historico?.tipoSimulado.assunto}</h1>
+      <h1 className="h1Historico">{materiaNome}</h1>
       <main className="container py-5">
-        <Historico historico={historico} />
+        <Historico historico={historico} assunto={assuntoNome} />
       </main>
       <Footer />
     </div>

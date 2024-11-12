@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { axiosAprovaApi } from '~/configs/auth';
 import { Link } from '@remix-run/react';
-import { Card, ListGroup } from 'react-bootstrap';
 
 export interface HistoricoInterface {
     _id: string,
@@ -28,7 +27,7 @@ export default function Cards() {
         await axiosAprovaApi
             .get("/historics/myHistorics")
             .then((r) => {
-                setHistoricos(r.data);
+                setHistoricos((r.data).reverse());
 
             })
             .catch((e) => {
@@ -48,13 +47,10 @@ export default function Cards() {
                     {historicos.length >= 0 ?
                         historicos.map((historico) => {
                             const actualDate = new Date(historico.createdAt)
-                            const materiaNome = historico.tipoSimulado?.materia?.nome || "Nenhuma"
+                            const materiaNome = historico.tipoSimulado?.materia?.nome || "Todas as Matéria"
                             const assuntoNome = historico.tipoSimulado?.materia?.nome || "Nenhum"
 
                             return (
-
-
-
 
                                 <div key={historico._id} className="card m-4 mb-3">
                                     <div className="row g-0 h-25">
