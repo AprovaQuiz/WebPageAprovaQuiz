@@ -1,0 +1,115 @@
+.cardHistorico{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.h1Historico {
+    color: var(--text-roxo-secundario) !important;
+    text-align: center;
+    padding-top: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.txtHistorico {
+    color: var(--text-roxo-principal) !important;
+    display:flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.card-opcao {
+    background-color: var(--background-primario);
+    border-radius: 20px;
+  }
+  
+  .card-text{
+    color: var(--text-roxo-secundario) !important;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+  }
+  
+  .card-number {
+    color: var(--text-roxo-secundario);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .col-6 {
+    max-width: 260px; 
+}
+
+.h-100 {
+    border-radius: 20px;
+}
+
+.btn{
+ background-color: var(--text-roxo-principal);
+ color: #fff;
+}
+
+
+.questao-bg {
+  background-color: var(--background-primario);
+}
+
+.questao-titulo {
+  color: var(--text-roxo-secundario) !important;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.questao-texto {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: var(--background-primario);
+}
+
+.opcao-btn {
+  color: var(--text-roxo-principal);
+  border: var(--text-roxo-secundario) 5px solid;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.opcao-marcada, .opcao-btn:hover {
+  color: #fff;
+  background-color: var(--text-roxo-principal);
+}
+
+.opcao-certa{
+  color: #fff;
+  background-color: #008000;
+}
+
+.btn-responder {
+  background-color: var(--text-roxo-secundario);
+  color: var(--background-primario);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.btn-responder:hover {
+  background-color: var(--text-roxo-principal);
+}

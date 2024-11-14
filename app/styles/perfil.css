@@ -1,0 +1,101 @@
+.h1perfil {
+    color: var(--text-roxo-secundario) !important;
+  }
+ 
+  .form-check-input {
+    transform: scale(1.2);
+  }
+
+  .btn-primary {
+    background-color: var(--text-roxo-secundario) !important;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0px 4px 10px rgba(123, 44, 191, 0.2);
+    color: #fff !important;
+    padding: 10px 20px; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #5f199e !important; /* Tom mais escuro para o hover */
+  box-shadow: 0px 6px 12px rgba(95, 25, 158, 0.4); /* Sombra mais intensa no hover */
+}
+
+.btn-outline-primary {
+  color: var(--text-roxo-secundario) !important;
+  border-color: var(--text-roxo-secundario) !important;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--text-roxo-secundario) !important;
+  color: #fff !important;
+  box-shadow: 0px 4px 10px rgba(123, 44, 191, 0.4); /* Sombra ao passar o mouse */
+}
+
+.btn-link {
+    font-weight: bold;
+    color: var(--text-roxo-secundario) !important;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-link:hover {
+    background-color: rgba(123, 44, 191, 0.1); /* Fundo leve no hover */
+    color: var(--text-roxo-secundario) !important;
+}
+
+.form-check-input {
+    transform: scale(1.2);
+    background-color: white;
+    border-color: var(--text-roxo-secundario);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(123, 44, 191, 0.2);
+}
+
+.text-primary {
+    color: var(--text-roxo-secundario)!important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+#darkModeToggle:checked {
+    background-color: #7b2cbf;
+}
+
+.bi {
+  font-size: 1.2rem;
+}
+
+.modal-title {
+  color: var(--text-roxo-secundario);
+  font-weight: bold;
+}
+
+.modal-header, .modal-footer{
+  border: none !important;
+}
+
+.input-group-text {
+  background: transparent;
+  border: none !important;
+}
+
+.input-group .form-control {
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.input-group-text i {
+  color: var(--text-roxo-secundario);
+}
