@@ -1,5 +1,4 @@
 import { Link } from "@remix-run/react";
-import Dropdown from 'react-bootstrap/Dropdown';
 import Swal from "sweetalert2";
 
 export function logout() {
@@ -37,20 +36,27 @@ export function Header() {
                             {/* <li className="nav-item"><Link to="/" className="nav-link">Cadernos</Link></li> */}
                             <li className="nav-item"><Link to="/Noticias" className="nav-link">Notícias</Link></li>
                         </ul>
-                        <a href="/Login"> <button className="btn btn-outline-white me-2">Login</button></a>
-                        <a href="/Registrar"><button className="btn btn-white">Sign-up</button></a>
 
-                        {/* <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic">
-                                Perfil
-                            </Dropdown.Toggle>
+                        {typeof window == 'undefined' || !localStorage.getItem('access-token') ?
+                            <>
+                                <Link to="/Login"> <button className="btn btn-outline-white me-2">Login</button></Link>
+                                <Link to="/Registrar"><button className="btn btn-white">Sign-up</button></Link>
+                            </>
+                            :
+                            <div className="d-flex align-items-center">
+                                <Link to="/notificacoes" className="me-3">
+                                    <i className="bi bi-bell" style={{ color: '#ffffff', fontSize: '1.25rem' }}></i>
+                                </Link>
+                                <Link to="/historicos" className="me-3">
+                                    <i className="bi bi-clock-history" style={{ color: '#ffffff', fontSize: '1.25rem' }}></i>
+                                </Link>
+                                <Link to="/perfil">
+                                    <i className="bi bi-person" style={{ color: '#ffffff', fontSize: '1.25rem' }}></i>
+                                </Link>
 
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Opção 1</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Opção 2</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Opção 3</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown> */}
+                            </div>
+                        }
+
 
                     </div>
                 </div>

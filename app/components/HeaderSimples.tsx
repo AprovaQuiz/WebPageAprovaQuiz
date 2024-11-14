@@ -1,4 +1,4 @@
-export function Header() {
+export function Header_simples() {
     return (
         <header>
             <nav className="headerAQ navbar" style={{ backgroundColor: '#f9f9f9' }}>
