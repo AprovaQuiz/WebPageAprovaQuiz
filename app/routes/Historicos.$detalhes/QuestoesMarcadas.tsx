@@ -1,4 +1,4 @@
-import { QuestaoInterface } from "./Route";
+import { QuestaoInterface } from "./route";
 
 interface QuestoesMarcadasProps {
   questao: QuestaoInterface,

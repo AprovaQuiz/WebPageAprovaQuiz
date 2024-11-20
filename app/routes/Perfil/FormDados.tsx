@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { UserInterface } from "./Route";
+import { UserInterface } from "./route";
 
 interface FormDados {
     userData?: UserInterface

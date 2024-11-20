@@ -1,4 +1,4 @@
-import { NoticiaType } from "./Route";
+import { NoticiaType } from "./route";
 
 
 function Noticia(props: { noticia: NoticiaType | undefined }) {

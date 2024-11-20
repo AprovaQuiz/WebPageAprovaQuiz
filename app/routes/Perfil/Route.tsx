@@ -2,13 +2,13 @@ import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Footer } from "~/components/Footer";
 import { Header, logout } from "~/components/Header";
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import ChangePasswordModal from "./Modal";
+import ChangePasswordModal from "./modal";
 
 import perfil from '~/styles/perfil.css?url';
 import { axiosAprovaApi } from "~/configs/auth";
-import { FormDados } from "./FormDados";
+import { FormDados } from "./formDados";
 import Swal from "sweetalert2";
-import { ImageInterface } from "../FormSimulado/GridMateria";
+import { ImageInterface } from "../formSimulado/gridMateria";
 import { Buffer } from 'buffer';
 
 export const links: LinksFunction = () => {

@@ -1,11 +1,10 @@
 import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { FormEvent } from "react";
-import { Header } from "~/components/HeaderSimples";
 import auth from '~/styles/auth.css?url';
 import Swal from "sweetalert2";
 import { axiosAprovaApi } from "~/configs/auth";
 import { Link, useNavigate } from "@remix-run/react";
-import { HandleHistoric } from "../Questoes.$questaoIndex/Questao";
+import { HandleHistoric } from "../questoes.$questaoIndex/questao";
 
 export const links: LinksFunction = () => {
   return [
@@ -75,7 +74,6 @@ export default function Login() {
 
   return (
     <main>
-      <Header />
       <div className="auth-container">
         <div className="auth-left">
           <h1>Bem-vindo de volta</h1>

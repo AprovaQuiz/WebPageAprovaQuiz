@@ -6,7 +6,7 @@ import historicoCss from '~/styles/historico.css?url';
 import { useLoaderData } from "@remix-run/react";
 import { useState, useCallback, useEffect } from "react";
 import { axiosAprovaApi } from "~/configs/auth";
-import Historico from "./Historico";
+import { Historico } from "./historico";
 
 
 

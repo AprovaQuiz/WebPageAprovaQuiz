@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { dataCadernos } from "../_index/carousel";
-import { Grid } from "./GridSimpleCard";
-import { GridMateria, ImageInterface } from "./GridMateria";
+import { Grid } from "./gridSimpleCard";
+import { GridMateria, ImageInterface } from "./gridMateria";
 import { axiosAprovaApi } from "~/configs/auth";
-import { GridAssunto } from "./GridAssunto";
-import { BodyQtdQuestoes } from "./BodyQtdQuestoes";
+import { GridAssunto } from "./gridAssunto";
+import { BodyQtdQuestoes } from "./bodyQtdQuestoes";
 
 export default function PageNavigation() {
 

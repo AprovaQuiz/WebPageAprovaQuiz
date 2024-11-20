@@ -1,7 +1,7 @@
 import { FormEvent } from 'react';
 import { Modal, Button, Form, ModalProps } from 'react-bootstrap';
 import { axiosAprovaApi } from '~/configs/auth';
-import { UserInterface } from './Route';
+import { UserInterface } from './route';
 import Swal from 'sweetalert2';
 
 interface ChangePasswordModalProps {

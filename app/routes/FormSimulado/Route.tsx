@@ -4,7 +4,7 @@ import { Header } from "~/components/Header";
 
 import simulado from '~/styles/simulado.css?url';
 import grid from '~/styles/simpleCard.css?url';
-import PageNavigation from "./PageNavigation";
+import PageNavigation from "./pageNavigation";
 
 export const links: LinksFunction = () => {
     return [

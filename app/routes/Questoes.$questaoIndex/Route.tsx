@@ -6,7 +6,7 @@ import { Header } from "~/components/Header";
 
 // Forma de importação de css
 import questoesCss from '~/styles/questoes.css?url';
-import { Questao } from "./Questao";
+import { Questao } from "./questao";
 
 
 export async function loader({

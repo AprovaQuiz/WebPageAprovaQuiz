@@ -2,7 +2,6 @@ import { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { Link, useNavigate } from "@remix-run/react";
 import { FormEvent, useState } from "react";
 import Swal from "sweetalert2";
-import { Header } from "~/components/HeaderSimples";
 import { axiosAprovaApi } from "~/configs/auth";
 import auth from '~/styles/auth.css?url';
 
@@ -121,7 +120,6 @@ export default function Register() {
   }
   return (
     <main>
-      <Header />
       <div className="auth-container">
         <div className="auth-left">
           <h1>Bem-vindo!</h1>

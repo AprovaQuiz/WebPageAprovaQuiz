@@ -1,8 +1,8 @@
-import QuestoesMarcadas from "./QuestoesMarcadas";
-import { HistoricoType } from "./Route";
+import QuestoesMarcadas from "./questoesMarcadas";
+import { HistoricoType } from "./route";
 import { Tab, Row, Col, Nav } from "react-bootstrap";
 
-export default function Historico(props: { historico: HistoricoType | undefined, assunto: string }) {
+export function Historico(props: { historico: HistoricoType | undefined, assunto: string }) {
 
   function HeaderNavigation() {
     if (props.historico?.questoesFeitas) {

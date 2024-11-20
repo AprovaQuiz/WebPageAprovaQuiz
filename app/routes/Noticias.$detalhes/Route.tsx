@@ -1,6 +1,6 @@
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-import Noticia from "./Noticia";
+import Noticia from "./noticia";
 import { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
 import noticias from '~/styles/noticias.css?url';
 import { useLoaderData } from "@remix-run/react";
