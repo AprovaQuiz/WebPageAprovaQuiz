@@ -108,7 +108,9 @@ export default function PageNavigation() {
         return (
             <div>
                 <p className="txtSimulado">Quantas questões você quer em seu simulado?</p>
-                <BodyQtdQuestoes assunto={assuntoEscolhido} materia={materiaEscolhida} />
+                <div className="container-fluid">
+                    <BodyQtdQuestoes assunto={assuntoEscolhido} materia={materiaEscolhida} />
+                </div>
                 <button type="button" className="btn float-left m-5" onClick={() => setNumeroPagina(numeroPagina - 1)}>Voltar</button >
             </div>
         )
