@@ -1,28 +1,40 @@
 import { Link } from "@remix-run/react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-export function logout() {
-    Swal.fire({
+export async function logout() {
+
+    const result = await Swal.fire({
         title: 'Quer realmente sair?',
         showCancelButton: true,
         confirmButtonText: 'Deslogar',
-    }).then((result) => {
+    });
+    if (result.isConfirmed) {
+        localStorage.removeItem("access-token");
+        Swal.fire({
+            title: "Deslogado",
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            icon: "success"
+        }).then(() => { window.location.assign("/"); });
+    }
 
-        if (result.isConfirmed) {
-            localStorage.removeItem("access-token")
-            Swal.fire({
-                title: "Deslogado",
-                allowEscapeKey: false,
-                allowOutsideClick: false,
-                icon: "success"
-            }).then(() => { window.location.assign("/") })
-        }
-    })
+    return result
 
 }
 
 export function Header() {
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        // Verifica se o token existe no localStorage apenas no cliente
+        const token = localStorage.getItem('access-token');
+        setIsAuthenticated(!!token);
+    }, []);
+
     return (
+
         <header>
             <nav className="headerAQ navbar">
                 <div className="container-fluid d-flex justify-content-between">
@@ -37,7 +49,7 @@ export function Header() {
                             <li className="nav-item"><Link to="/Noticias" className="nav-link">Notícias</Link></li>
                         </ul>
 
-                        {typeof window == 'undefined' || !localStorage.getItem('access-token') ?
+                        {!isAuthenticated ?
                             <>
                                 <Link to="/Login"> <button className="btn btn-outline-white me-2">Login</button></Link>
                                 <Link to="/Registrar"><button className="btn btn-white">Sign-up</button></Link>

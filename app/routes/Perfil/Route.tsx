@@ -61,6 +61,7 @@ function Perfil() {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
+
   async function patchUser(user: UserInterface | undefined) {
 
 
@@ -210,7 +211,7 @@ function Perfil() {
               </li>
               <li className="d-flex align-items-center">
                 <i className="bi bi-box-arrow-right me-2 text-danger"></i>
-                <button className="btn btn-link text-danger p-0" onClick={logout}>Desconectar conta</button>
+                <button className="btn btn-link text-danger p-0" onClick={() => logout()}>Desconectar conta</button>
               </li>
             </ul>
           </div>
