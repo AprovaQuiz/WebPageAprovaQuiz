@@ -53,7 +53,7 @@ export default function Index() {
 
   return (
     <main>
-      {/* <Header /> */}
+      <Header />
 
       <div className="vh-100 d-flex flex-column justify-content-center align-items-center bannerHome">
         <div className="container h-100">
