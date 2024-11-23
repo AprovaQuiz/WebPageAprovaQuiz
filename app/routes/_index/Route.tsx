@@ -62,7 +62,7 @@ export default function Index() {
             <div className="col-md-6 d-flex flex-column justify-content-center">
               <h1 className="display-3 mb-4 textaoBanner text-light">Se prepare para os vestibulares com nossa ajuda!</h1>
               <p className="lead mb-4 text-light">
-                Teste seus conhecimentos com nosso simulado!
+                Teste seus conhecimentos com nosso simulado
               </p>
               <Link to="/FormSimulado" className="btn btn-lg btn-light botaoSimulado">
                 Ir para o simulado
