@@ -49,6 +49,11 @@
  color: #fff;
 }
 
+.btn:hover{
+  color: #f30b0b;
+ }
+ 
+
 
 .questao-bg {
   background-color: var(--background-primario);

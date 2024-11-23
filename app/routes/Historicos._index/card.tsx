@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { axiosAprovaApi } from '~/configs/auth';
 import { Link } from '@remix-run/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 export interface HistoricoInterface {
     _id: string,
@@ -40,6 +43,29 @@ export default function Cards() {
     }, [handleGet])
 
 
+    async function handleDelete(id: string) {
+        return Swal.fire({
+            title: 'Quer deletar?',
+            showDenyButton: true,
+            /* showCancelButton: true, */
+            denyButtonText: `Cancelar`,
+            confirmButtonText: 'Deletar',
+        }).then(async (result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                await axiosAprovaApi.delete(`/historics/${id}`)
+                    .then(() => {
+                        Swal.fire('Deletado!', '', 'success').then(() => { window.location.reload() })
+                    })
+                    .catch(e => { console.log(e) })
+
+            } else if (result.isDenied) {
+                Swal.fire('Não deletado', '', 'info')
+            }
+        })
+
+    }
+
     return (
         <div className="container ">
             <div className='d-flex align-items-center justify-content-center container'>
@@ -54,13 +80,16 @@ export default function Cards() {
 
                                 <div key={historico._id} className="card m-4 mb-3">
                                     <div className="row g-0 h-25">
-                                        <div className="col-sm-12 col-md-4">
-                                            <img src={"https://via.placeholder.com/300x300"} style={{ width: "300px", height: "270px" }}
-                                                className="img-fluid rounded-start" alt={"imagem padrão"} />
-                                        </div>
-                                        <div className="col-md-8">
-                                            <div className="card-body">
-                                                <h5 className="card-title">Simulado de {materiaNome}</h5>
+                                        <div className="col">
+                                            <div className="card-body w-100 p-5">
+                                                <div className="row-fluid">
+                                                    <button className='float-end btn btn-link bg-none' type='button' onClick={() => handleDelete(historico._id)}>
+                                                        <FontAwesomeIcon icon={faTrashAlt} />
+                                                    </button>
+
+                                                    <h5 className="card-title">Simulado de {materiaNome}</h5>
+
+                                                </div>
                                                 <p className="card-text">Assunto {assuntoNome}</p>
                                                 <p>Total de Questões {historico.questoesFeitas.length}</p>
                                                 <p>
@@ -86,6 +115,7 @@ export default function Cards() {
                                                 <Link to={`/Historicos/historico_id=${historico._id}`} className="btn w-50 text-light btn-primary">Ver mais</Link>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
 
