@@ -92,6 +92,7 @@ export default function PageNavigation() {
         return (
             <div>
                 <p className="txtSimulado">Sobre qual assunto você quer fazer o Simulado?</p>
+                <p className="txtSimulado">Obs: o assunto nenhum, filtrará questões de todos os assuntos.</p>
                 <GridAssunto assuntos={assuntos} setNumeroPagina={setNumeroPagina} setTipoDado={setAssuntoEscolhido} numeroPagina={numeroPagina} />
                 <button type="button" className="btn float-left m-5" onClick={() => {
                     if (materiaEscolhida != "Nenhuma")
