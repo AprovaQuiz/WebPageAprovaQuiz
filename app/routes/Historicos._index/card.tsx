@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { axiosAprovaApi } from '~/configs/auth';
 import { Link } from '@remix-run/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 
 export interface HistoricoInterface {
