@@ -29,7 +29,7 @@
 }
 
 .opcao-btn {
-  color: var(--text-roxo-principal);
+  color: var(--text-roxo-principal) !important;
   border: var(--text-roxo-secundario) 5px solid;
   padding: 0.5rem 1rem;
   border-radius: 50%;
